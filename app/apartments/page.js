@@ -3,6 +3,12 @@ import Header from "../components/Header";
 import ApartmentGrid from "./components/ApartmentGrid/ApartmentGrid";
 import { getActiveApartments } from "@/lib/queries/apartments";
 
+export const metadata = {
+  title: "Apartments",
+  description:
+    "Explore Lindon's shortlet apartments across Lekki, Lagos. View each stay, amenities, pricing and availability.",
+};
+
 export default async function ApartmentsPage() {
   const apartments = await getActiveApartments();
 

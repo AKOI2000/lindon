@@ -6,6 +6,12 @@ import AboutStory from "./components/AboutStory/AboutStory";
 import AboutCTA from "./components/AboutCTA/AboutCTA";
 import GuestArea from "../components/GuestArea/GuestArea";
 
+export const metadata = {
+  title: "About Lindon",
+  description:
+    "Learn more about Lindon and our approach to shortlet stays in Lekki, Lagos.",
+};
+
 export default function AboutPage() {
   return (
     <>

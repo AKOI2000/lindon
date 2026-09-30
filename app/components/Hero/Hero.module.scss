@@ -53,6 +53,7 @@
   align-items: center;
   text-align: center;
   @include container;
+  padding: 0 $space-2;
 }
 
 .heading {
