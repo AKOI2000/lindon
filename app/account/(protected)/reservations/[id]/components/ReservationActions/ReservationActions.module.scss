@@ -1,0 +1,64 @@
+@use "../../../../../../../styles/variables" as *;
+@use "../../../../../../../styles/mixins" as *;
+
+.actions {
+  padding-top: $space-8;
+
+  &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-3;
+  }
+
+  &__edit,
+  &__cancel {
+    padding: $space-3 $space-6;
+    border-radius: $radius-sm;
+    font-family: $font-body;
+    font-size: $fs-p-sm;
+    cursor: pointer;
+  }
+
+  &__edit {
+    border: 0;
+    background: $color-text;
+    color: $color-bg;
+
+    &:hover {
+      background: $color-accent-dark;
+    }
+  }
+
+  &__cancel {
+    border: 1px solid $color-danger;
+    background: transparent;
+    color: $color-danger;
+
+    &:hover {
+      background: $color-bg-alt;
+    }
+  }
+
+  &__cancel:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  &__error {
+    margin: $space-4 0 0;
+    color: $color-danger;
+    font-family: $font-body;
+    font-size: $fs-p-sm;
+  }
+
+  @include respond(mds) {
+    &__buttons {
+      flex-direction: column;
+    }
+
+    &__edit,
+    &__cancel {
+      width: 100%;
+    }
+  }
+}

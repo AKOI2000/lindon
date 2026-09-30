@@ -1,0 +1,99 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.cta {
+  position: relative;
+  min-height: 60rem;
+  overflow: hidden;
+  margin-top: $space-24;
+  background: $color-bg-alt;
+
+  .overlay{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0,0,0,.7);
+    z-index: 1;
+  }
+
+  &__image {
+    position: absolute;
+    inset: 0;
+    background: $color-bg-alt;
+    object-fit: cover;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    width: calc(100% - $space-8);
+    max-width: $max-width;
+    min-height: 64rem;
+    margin: 0 auto;
+  }
+
+  &__eyebrow {
+    @include eyebrow;
+  }
+
+  &__title {
+    @include title;
+    font-size: clamp(3.5rem, 5vw, $fs-h1);
+    color: $color-bg;
+  }
+
+  &__description {
+    @include description;
+    color: $color-bg-alt;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: $space-6;
+    padding: $space-4 $space-6;
+    color: $color-bg;
+    background: $color-text;
+    border-radius: $radius-sm;
+    font-family: $font-body;
+    font-size: $fs-p-sm;
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+      background 180ms ease,
+      color 180ms ease;
+
+    &:hover {
+      color: $color-bg;
+      background: $color-accent-dark;
+    }
+  }
+
+  @include respond(md) {
+    min-height: 52rem;
+    margin-top: $space-16;
+
+    &__content {
+      width: calc(100% - $space-6);
+      min-height: 52rem;
+    }
+  }
+
+  @include respond(mds) {
+    min-height: 48rem;
+
+    &__content {
+      width: calc(100% - $space-4);
+      min-height: 48rem;
+    }
+  }
+}

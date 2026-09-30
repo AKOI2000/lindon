@@ -1,0 +1,124 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.experience {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: $space-8;
+
+  margin: 0 auto;
+  padding: $space-24 0;
+
+  @include respond(lg) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: $space-6;
+  }
+
+  @include respond(mdl) {
+    grid-template-columns: 1fr;
+    gap: $space-8;
+
+    // width: calc(100% - $space-6);
+    padding: $space-16 0;
+  }
+
+  &__image {
+    min-height: 62rem;
+
+    overflow: hidden;
+
+    background: $color-bg-alt;
+    border-radius: $radius-sm;
+
+    @include respond(lg) {
+      min-height: 58rem;
+    }
+
+    @include respond(md) {
+      min-height: 50rem;
+    }
+
+    @include respond(mds) {
+      min-height: 42rem;
+    }
+
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: $space-8 $space-6;
+
+    @include respond(mds) {
+      padding: $space-8 $space-4;
+    }
+  }
+
+  &__eyebrow {
+    @include eyebrow;
+  }
+
+  &__title {
+    @include title;
+  }
+
+  &__description {
+    @include description;
+  }
+
+  &__features {
+    margin-top: $space-12;
+  }
+
+  &__feature {
+    display: grid;
+    grid-template-columns: 4rem minmax(0, 1fr);
+    gap: $space-4;
+
+    padding: $space-6 0;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $color-border;
+    }
+
+    @include respond(mds) {
+      grid-template-columns: 3rem minmax(0, 1fr);
+      gap: $space-2;
+    }
+  }
+
+  &__number {
+    padding-top: 0.2rem;
+
+    color: $color-text-muted;
+    font-family: $font-body;
+    font-size: $fs-p-sm;
+  }
+
+  &__feature h3 {
+    margin: 0;
+
+    color: $color-text;
+    font-family: $font-heading;
+    font-size: $fs-h4;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.05rem;
+  }
+
+  &__feature p {
+    max-width: 42rem;
+    margin: $space-2 0 0;
+
+    color: $color-text-muted;
+    font-family: $font-body;
+    font-size: $fs-p-sm;
+    line-height: 1.6;
+  }
+}

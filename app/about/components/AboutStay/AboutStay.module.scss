@@ -1,0 +1,166 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
+.stay {
+  width: 100%;
+  padding-block: $space-24;
+
+  .intro {
+    @include container;
+
+    width: calc(100% - $space-8);
+    margin-bottom: $space-12;
+  }
+
+  .label {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+
+    margin-bottom: $space-6;
+
+    color: $color-text-muted;
+    font-family: $font-body;
+    font-size: $fs-p-sm;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+
+    span:first-child {
+      color: $color-accent;
+    }
+  }
+
+  h2 {
+    @include title;
+
+    max-width: 70rem;
+    font-size: clamp(4rem, 5vw, $fs-h2);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1.4fr 0.6fr;
+    grid-template-rows: repeat(2, 32rem);
+    gap: $space-2;
+
+    width: 100%;
+  }
+
+  .imageWrapper {
+    position: relative;
+    overflow: hidden;
+
+    &.large {
+      grid-row: 1 / 3;
+    }
+
+    &.small {
+      grid-column: 2;
+    }
+  }
+
+  .imageWrapper img {
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .imageWrapper:hover img {
+    transform: scale(1.02);
+  }
+
+  .footer {
+    @include container;
+
+    display: flex;
+    justify-content: flex-end;
+
+    width: calc(100% - $space-8);
+    margin-top: $space-6;
+  }
+
+  .link {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-3;
+
+    font-family: $font-body;
+    font-size: $fs-p-sm;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+
+    transition: color 0.2s ease;
+
+    span {
+      color: $color-accent;
+      transition: transform 0.2s ease;
+    }
+
+    &:hover {
+      color: $color-accent-dark;
+
+      span {
+        transform: translate(0.2rem, -0.2rem);
+      }
+    }
+
+    @include focus-ring;
+  }
+
+  @include respond(md) {
+    padding-block: $space-16;
+
+    .intro {
+      margin-bottom: $space-8;
+    }
+
+    .grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 40rem 24rem;
+    }
+
+    .imageWrapper {
+      &.large {
+        grid-column: 1 / 3;
+        grid-row: 1;
+      }
+
+      &.small {
+        grid-column: auto;
+        grid-row: 2;
+      }
+    }
+
+    .footer {
+      justify-content: flex-start;
+    }
+  }
+
+  @include respond(sm) {
+    .intro,
+    .footer {
+      width: calc(100% - $space-6);
+    }
+
+    .grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: 45rem 28rem 28rem;
+      gap: $space-2;
+    }
+
+    .imageWrapper {
+      &.large {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      &.small {
+        grid-column: 1;
+        grid-row: auto;
+      }
+    }
+
+    h2 {
+      font-size: 3.4rem;
+    }
+  }
+}

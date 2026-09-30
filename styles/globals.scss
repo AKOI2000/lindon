@@ -1,0 +1,115 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; // 1rem = 10px
+  scroll-behavior: smooth;
+
+  @include lgrespond(xxxl) {
+    font-size: 93.75%; // scales rem up slightly on very large screens
+  }
+
+  @include respond(md) {
+    font-size: 50%; // scales rem down on smaller screens — 1rem = 8px
+  }
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background: $color-bg;
+  color: $color-text;
+  font-family: $font-body;
+  font-size: $fs-base;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden; // no unintended horizontal scroll
+}
+
+h1 {
+  font-family: $font-heading;
+  font-weight: 500;
+  line-height: 1.1;
+  margin: 0;
+  font-size: $fs-h1;
+}
+h2 {
+  font-family: $font-heading;
+  font-weight: 500;
+  line-height: 1.15;
+  margin: 0;
+  font-size: $fs-h2;
+}
+h3 {
+  font-family: $font-heading;
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0;
+  font-size: $fs-h3;
+}
+h4 {
+  font-family: $font-heading;
+  font-weight: 500;
+  line-height: 1.25;
+  margin: 0;
+  font-size: $fs-h4;
+}
+h5 {
+  font-family: $font-heading;
+  font-weight: 500;
+  line-height: 1.3;
+  margin: 0;
+  font-size: $fs-h5;
+}
+h6 {
+  font-family: $font-heading;
+  font-weight: 500;
+  line-height: 1.3;
+  margin: 0;
+  font-size: $fs-h6;
+}
+
+p {
+  font-size: $fs-base;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.page-heading {
+  margin-top: calc($space-24 + 2rem);
+  @include container;
+
+  width: calc(100% - $space-8);
+  .eyebrow {
+    @include eyebrow;
+  }
+
+  h1 {
+    @include title;
+    font-size: $fs-h1;
+  }
+
+  .description {
+    @include description;
+  }
+}

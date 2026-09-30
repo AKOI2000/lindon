@@ -1,0 +1,108 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: $space-8;
+  border-right: 1px solid $color-border;
+
+  &__header {
+    margin-bottom: $space-12;
+  }
+
+  &__eyebrow {
+    @include eyebrow;
+    margin-bottom: $space-3;
+  }
+
+  &__name {
+    margin: 0;
+    color: $color-text;
+    font-family: $font-heading;
+    font-size: $fs-h4;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: $space-2;
+
+    a {
+      padding: $space-3 $space-4;
+      color: $color-text-muted;
+      font-family: $font-body;
+      font-size: $fs-base;
+      text-decoration: none;
+      border-radius: $radius-sm;
+
+      &:hover {
+        background: $color-bg-alt;
+        color: $color-text;
+      }
+    }
+  }
+
+  &__footer {
+    margin-top: auto;
+    padding-top: $space-8;
+
+    form {
+      margin: 0;
+    }
+
+    button {
+      width: 100%;
+      padding: $space-3 $space-4;
+      border: 0;
+      background: transparent;
+      color: $color-danger;
+      font-family: $font-body;
+      font-size: $fs-p-sm;
+      text-align: left;
+      cursor: pointer;
+      border-radius: $radius-sm;
+
+      &:hover {
+        background: $color-bg-alt;
+      }
+    }
+  }
+
+  @include respond(md) {
+    min-height: auto;
+    padding: $space-6;
+    border-right: 0;
+    border-bottom: 1px solid $color-border;
+
+    &__header {
+      margin-bottom: $space-6;
+    }
+
+    &__nav {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: $space-2;
+    }
+
+    &__footer {
+      margin-top: $space-4;
+      padding-top: 0;
+
+      button {
+        width: auto;
+      }
+    }
+  }
+
+  @include respond(mds) {
+    padding: $space-4;
+
+    &__nav {
+      flex-direction: column;
+    }
+  }
+}

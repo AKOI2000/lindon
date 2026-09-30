@@ -1,0 +1,57 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.account {
+  padding-top: calc($space-24 + 2rem);
+  padding-bottom: $space-24;
+
+  &__layout {
+    @include container;
+
+    display: grid;
+    grid-template-columns: 24rem minmax(0, 1fr);
+    width: calc(100% - $space-8);
+    min-height: calc(100vh - 20rem);
+    border: 1px solid $color-border;
+    background: $color-bg;
+  }
+
+  &__content {
+    min-width: 0;
+    padding: $space-12;
+  }
+
+  @include respond(lg) {
+    &__layout {
+      grid-template-columns: 22rem minmax(0, 1fr);
+    }
+
+    &__content {
+      padding: $space-8;
+    }
+  }
+
+  @include respond(md) {
+    padding-top: $space-16;
+    padding-bottom: $space-16;
+
+    &__layout {
+      grid-template-columns: 1fr;
+      width: calc(100% - $space-6);
+    }
+
+    &__content {
+      padding: $space-8;
+    }
+  }
+
+  @include respond(mds) {
+    &__layout {
+      width: calc(100% - $space-4);
+    }
+
+    &__content {
+      padding: $space-6;
+    }
+  }
+}

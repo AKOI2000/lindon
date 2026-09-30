@@ -1,0 +1,91 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.footer {
+  background: $color-text; // charcoal, not pure black
+  color: $color-bg;
+}
+
+.inner {
+  @include container;
+  display: flex;
+  flex-direction: column;
+  gap: $space-12;
+  padding-block: $space-16;
+  padding: $space-4;
+
+  @include lgrespond(md) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.brand {
+  max-width: 32rem;
+}
+
+.logo {
+  font-family: $font-heading;
+  font-size: $fs-h5;
+  color: #fcfcfc;
+  display: block;
+  margin-bottom: $space-3;
+}
+
+.tagline {
+  font-size: 1.5rem;
+  color: rgba(#fcfcfc, 0.65);
+  line-height: 1.6;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-8;
+
+  @include lgrespond(sm) {
+    grid-template-columns: repeat(3, auto);
+    gap: $space-16;
+  }
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+
+  h6 {
+    color: #fcfcfc;
+    font-size: 1.4rem;
+    margin-bottom: $space-2;
+  }
+
+  a, .contactLine {
+    color: rgba(#fcfcfc, 0.65);
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    transition: color 0.2s ease;
+
+    &:hover { color: $color-accent; }
+  }
+}
+
+.bottom {
+  border-top: 1px solid rgba(#fcfcfc, 0.12);
+  padding: $space-4 0;
+
+  @include container;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  font-size: 1.3rem;
+  color: rgba(#fcfcfc, 0.5);
+  padding: $space-4;
+
+  @include lgrespond(sm) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

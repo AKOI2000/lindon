@@ -1,0 +1,105 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
+.cta {
+  width: 100%;
+  padding-block: $space-24;
+
+  background: $color-text;
+  color: $color-bg;
+
+  .content {
+    @include container;
+
+    width: calc(100% - $space-8);
+  }
+
+  .label {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+
+    margin-bottom: $space-12;
+
+    color: $color-text-muted;
+    font-family: $font-body;
+    font-size: $fs-p-sm;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+
+    span:first-child {
+      color: $color-accent;
+    }
+  }
+
+  h2 {
+    margin: 0;
+
+    max-width: 90rem;
+
+    color: $color-bg;
+    font-family: $font-heading;
+    font-size: clamp(5rem, 8vw, 10rem);
+    font-weight: 500;
+    line-height: 0.95;
+    letter-spacing: -0.3rem;
+  }
+
+  .link {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-3;
+
+    margin-top: $space-12;
+
+    color: $color-bg;
+    font-family: $font-body;
+    font-size: $fs-p-sm;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+
+    transition: color 0.2s ease;
+
+    span {
+      color: $color-accent;
+      transition: transform 0.2s ease;
+    }
+
+    &:hover {
+      color: $color-accent-light;
+
+      span {
+        transform: translate(0.2rem, -0.2rem);
+      }
+    }
+
+    @include focus-ring;
+  }
+
+  @include respond(md) {
+    padding-block: $space-16;
+
+    h2 {
+      font-size: clamp(4.8rem, 10vw, 7.5rem);
+    }
+
+    .label {
+      margin-bottom: $space-8;
+    }
+  }
+
+  @include respond(sm) {
+    .content {
+      width: calc(100% - $space-6);
+    }
+
+    h2 {
+      font-size: 4.8rem;
+      letter-spacing: -0.15rem;
+    }
+
+    .link {
+      margin-top: $space-8;
+    }
+  }
+}

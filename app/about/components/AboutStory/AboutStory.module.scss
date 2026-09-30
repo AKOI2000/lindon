@@ -1,0 +1,75 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
+.story {
+  width: 100%;
+  padding-block: $space-24;
+
+  .content {
+    @include container;
+
+    display: grid;
+    grid-template-columns: 0.35fr 1fr;
+    gap: $space-6;
+
+    width: calc(100% - $space-8);
+  }
+
+  .label {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+
+    color: $color-text-muted;
+    font-family: $font-body;
+    font-size: $fs-p-sm;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+
+    span:first-child {
+      color: $color-accent;
+    }
+  }
+
+  h2 {
+    @include title;
+    font-size: clamp(3.6rem, 5vw, $fs-h2);
+  }
+
+  p {
+    margin-top: $space-8;
+
+    color: $color-text-muted;
+    font-family: $font-body;
+    font-size: $fs-base;
+    line-height: 1.7;
+  }
+
+  @include respond(md) {
+    padding-block: $space-16;
+
+    .content {
+      grid-template-columns: 1fr;
+      gap: $space-6;
+    }
+
+    .body {
+      max-width: 70rem;
+    }
+  }
+
+  @include respond(sm) {
+    .content {
+      width: calc(100% - $space-6);
+    }
+
+    h2 {
+      font-size: 3.4rem;
+    }
+
+    p {
+      margin-top: $space-6;
+      font-size: $fs-p-sm;
+    }
+  }
+}

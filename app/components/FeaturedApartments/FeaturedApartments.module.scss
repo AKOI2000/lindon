@@ -1,0 +1,143 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.featuredApartments {
+  padding: $space-16 0;
+  @include container;
+
+  &__header {
+    width: calc(100% - $space-8);
+    max-width: $max-width;
+    margin: 0 auto $space-12;
+  }
+
+  &__eyebrow {
+    @include eyebrow;
+  }
+
+  &__title {
+    @include title;
+  }
+
+  &__description {
+    @include description;
+  }
+
+  &__header,
+  &__grid {
+    @include respond(md) {
+      width: calc(100% - $space-6);
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: $space-6;
+
+    width: calc(100% - $space-8);
+    max-width: $max-width;
+    margin: 0 auto;
+
+    @include respond(mdxl) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include respond(mds) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__card {
+    min-width: 0;
+
+    &:nth-child(3) {
+      @include respond(mdxl) {
+        grid-column: 1/-1;
+      }
+    }
+  }
+
+  &__image {
+    position: relative;
+    overflow: hidden;
+
+    width: 100%;
+    // aspect-ratio: 4 / 5;
+
+    margin-bottom: $space-4;
+
+    background: $color-bg-alt;
+    border-radius: $radius-sm;
+
+    img {
+      width: 100%;
+      min-height: 30rem;
+      object-fit: cover;
+    }
+  }
+
+  &__name {
+    margin: 0;
+
+    color: $color-text;
+    font-family: $font-heading;
+    font-size: $fs-h4;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.05rem;
+  }
+
+  &__location {
+    margin: $space-2 0 0;
+
+    color: $color-text-muted;
+    font-family: $font-body;
+    font-size: $fs-p-sm;
+  }
+
+  &__details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-4;
+
+    margin-top: $space-4;
+
+    color: $color-text-muted;
+    font-family: $font-body;
+    font-size: $fs-p-sm;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-4;
+
+    margin-top: $space-4;
+    padding-top: $space-4;
+
+    border-top: 1px solid $color-border;
+  }
+
+  &__price {
+    margin: 0;
+
+    color: $color-text;
+    font-family: $font-body;
+    font-size: $fs-p-sm;
+  }
+
+  &__link {
+    color: $color-text;
+    font-family: $font-body;
+    font-size: $fs-p-sm;
+    font-weight: 600;
+    border-bottom: .5px solid currentColor;
+    transition: color 180ms ease;
+
+    &:hover {
+      color: $color-accent-dark;
+    }
+  }
+}

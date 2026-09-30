@@ -1,0 +1,67 @@
+@use "sass:map";
+@use "variables" as *;
+
+// Scales DOWN for smaller screens (max-width)
+@mixin respond($breakpoint) {
+  @media (max-width: map.get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+// Scales UP for larger screens (min-width)
+@mixin lgrespond($breakpoint) {
+  @media (min-width: map.get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin container {
+  width: 100%;
+  max-width: $max-width;
+  margin-inline: auto;
+  // padding-inline: $space-4;
+
+  // @include lgrespond(md) { padding-inline: $space-8; }
+  // @include lgrespond(xl) { padding-inline: $space-12; }
+}
+
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 0.2rem solid $color-accent;
+    outline-offset: 0.2rem;
+  }
+}
+
+@mixin eyebrow {
+  margin: 0 0 $space-3;
+
+  color: $color-bg;
+  background: $color-text;
+  font-family: $font-body;
+  width: fit-content;
+  font-size: $fs-p-sm;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  // padding: $space-2;
+}
+
+@mixin title {
+  margin: 0;
+
+  color: $color-text;
+  font-family: $font-heading;
+  font-size: clamp(3.2rem, 5vw, $fs-h2);
+  // font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.1rem;
+}
+
+@mixin description {
+  margin: $space-1 0 0;
+
+  color: $color-text-muted;
+  font-family: $font-body;
+  font-size: $fs-base;
+  line-height: 1.7;
+}

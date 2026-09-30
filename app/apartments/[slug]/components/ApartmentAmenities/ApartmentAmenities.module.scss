@@ -1,0 +1,60 @@
+@use "../../../../../styles/variables" as *;
+@use "../../../../../styles/mixins" as *;
+
+.amenities {
+  @include container;
+
+  width: calc(100% - $space-8);
+  padding: $space-16 0;
+
+  &__header {
+    max-width: 65rem;
+    margin-bottom: $space-8;
+  }
+
+  &__eyebrow {
+    @include eyebrow;
+
+    margin-bottom: $space-3;
+  }
+
+  &__title {
+    @include title;
+
+    max-width: 60rem;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-top: 1px solid $color-border;
+  }
+
+  &__item {
+    padding: $space-6 $space-4 $space-6 0;
+    border-bottom: 1px solid $color-border;
+    color: $color-text;
+    font-family: $font-body;
+    font-size: $fs-base;
+
+    &:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @include respond(md) {
+    width: calc(100% - $space-6);
+
+    &__list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @include respond(mds) {
+    width: calc(100% - $space-4);
+
+    &__list {
+      grid-template-columns: 1fr;
+    }
+  }
+}

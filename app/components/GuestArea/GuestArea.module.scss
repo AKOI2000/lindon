@@ -1,0 +1,138 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.guestArea {
+  display: inline-block;
+  background-color: $color-text;
+  color: $color-bg;
+  border-radius: $radius-sm;
+  padding: $space-2 $space-4;
+  font-size: 1.4rem;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.menu {
+  position: relative;
+
+  &__trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: $color-text;
+    font-family: $font-body;
+    font-size: $fs-p-sm;
+    cursor: pointer;
+  }
+
+  &__avatar,
+  &__avatarFallback {
+    width: 3.2rem;
+    height: 3.2rem;
+    flex: 0 0 3.2rem;
+    border-radius: 50%;
+  }
+
+  &__avatar {
+    object-fit: cover;
+  }
+
+  &__avatarFallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $color-accent-light;
+    color: $color-accent-dark;
+    font-size: $fs-p-sm;
+  }
+
+  &__chevron {
+    display: inline-flex;
+    margin-left: $space-1;
+    font-size: 1.2rem;
+    transition: transform 200ms ease;
+  }
+
+  &__chevronOpen {
+    transform: rotate(180deg);
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: calc(100% + $space-3);
+    right: 0;
+    z-index: 100;
+
+    width: 28rem;
+    padding: $space-4;
+
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    background: $color-bg;
+    box-shadow: 0 1.2rem 3rem rgba(17, 17, 17, 0.08);
+  }
+
+  &__user {
+    display: flex;
+    flex-direction: column;
+    gap: $space-1;
+    padding: $space-2 $space-2 $space-4;
+
+    strong {
+      color: $color-text;
+      font-family: $font-heading;
+      font-size: $fs-base;
+      font-weight: 500;
+    }
+
+    span {
+      overflow: hidden;
+      color: $color-text-muted;
+      font-family: $font-body;
+      font-size: $fs-p-sm;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  &__divider {
+    height: 1px;
+    margin: $space-2 0;
+    background: $color-border;
+  }
+
+  &__item,
+  &__logout {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: $space-3 $space-2;
+    border: 0;
+    background: transparent;
+    color: $color-text;
+    font-family: $font-body;
+    font-size: $fs-p-sm;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: $radius-sm;
+
+    &:hover {
+      background: $color-bg-alt;
+    }
+  }
+
+  &__logout {
+    color: $color-danger;
+  }
+
+  @include respond(mds) {
+    &__dropdown {
+      width: 26rem;
+    }
+  }
+}

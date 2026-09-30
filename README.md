@@ -1,36 +1,146 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lindon
+
+Lindon is a full-stack shortlet apartment booking platform built with Next.js.
+
+The project is designed around a simple guest booking experience, allowing visitors to explore apartments, check availability, make reservations, and manage their stays from a dedicated guest area.
+
+## Features
+
+* Apartment listings and detail pages
+* Apartment image galleries and amenities
+* Availability calendar
+* Date conflict detection
+* Google authentication with Auth.js
+* Guest account area
+* Reservation management
+* Edit upcoming reservations
+* Cancel upcoming reservations
+* Past reservation history
+* Guest profile and phone number management
+* Server-side booking validation
+* PostgreSQL database with Prisma
+* Cached apartment and booking queries
+* Responsive design
+
+## Tech Stack
+
+* Next.js
+* React
+* JavaScript
+* Sass / SCSS Modules
+* Prisma
+* PostgreSQL
+* Auth.js
+* Google OAuth
+* React Day Picker
+* date-fns
+* Leaflet
+* Vercel
+
+## Booking Flow
+
+Visitors can browse the apartments without signing in.
+
+They can select an apartment, view its details, and check available dates through the availability calendar.
+
+A guest signs in with Google before creating a reservation.
+
+Once a reservation is created, the guest can access it from the Guest Area where they can:
+
+* View upcoming reservations
+* View past reservations
+* View reservation details
+* Edit upcoming reservations
+* Cancel upcoming reservations
+* Update their phone number
+
+## Project Structure
+
+```text
+app/
+├── account/
+│   ├── login/
+│   └── (protected)/
+│       ├── reservations/
+│       └── profile/
+│
+├── apartments/
+│   └── [slug]/
+│
+├── api/
+│   └── auth/
+│
+├── components/
+└── page.jsx
+
+lib/
+├── queries/
+├── auth.js
+└── prisma.js
+
+prisma/
+└── schema.prisma
+```
 
 ## Getting Started
 
-First, run the development server:
+Clone the repository and install the dependencies:
+
+```bash
+npm install
+```
+
+Create a `.env` file and add the required environment variables:
+
+```env
+DATABASE_URL=
+AUTH_SECRET=
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Database
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Lindon uses Prisma with PostgreSQL.
 
-## Learn More
+After configuring your database, run:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npx prisma migrate dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Generate the Prisma client with:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npx prisma generate
+```
 
-## Deploy on Vercel
+## Authentication
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Authentication is handled by Auth.js with Google OAuth.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+For local development, configure the Google OAuth application with:
+
+```text
+http://localhost:3000/api/auth/callback/google
+```
+
+The required Google credentials should be stored in environment variables and should never be committed to the repository.
+
+## Deployment
+
+The application can be deployed to Vercel or another platform that supports Next.js.
+
+Make sure the production environment includes the required database, authentication, and Google OAuth environment variables.
+
+## Project Status
+
+Lindon is a portfolio/pitch project demonstrating a full-stack accommodation booking workflow with authentication, availability management, reservations, and guest account functionality.

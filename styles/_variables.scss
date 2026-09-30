@@ -1,0 +1,61 @@
+$breakpoints: (
+  xs: 360px,
+  smd: 400px,
+  sm: 480px,
+  mds: 608px,
+  mdm: 650px,
+  md: 768px,
+  mdl: 880px,
+  mdxl: 950px,
+  lg: 1024px,
+  lgl: 1025px,
+  xl: 1280px,
+  xxl: 1440px,
+  xxxl: 2000px
+);
+
+// Colors
+$color-bg: #fcfcfc;
+$color-bg-alt: #f4f6f7;
+$color-text: #111111;
+$color-text-muted: #5c6a70;
+
+$color-accent: #5ba1d9;
+$color-accent-dark: #3f7fb3;   // hover/active
+$color-accent-light: #e8f1f9;  // tints, badges, subtle backgrounds
+
+$color-border: #e2e6e8;
+$color-success: #3f8f5f;
+$color-warning: #c98a3b;
+$color-danger: #b84c4c;
+
+// Typography — fonts loaded via next/font in app/layout.js, referenced as CSS vars
+$font-heading: var(--font-heading), serif;
+$font-body: var(--font-body), -apple-system, sans-serif;
+
+$fs-base: 1.6rem;   // = 16px at 62.5% root
+$scale-ratio: 1.25;  // major third — enough contrast for editorial headings without feeling arbitrary
+
+$fs-p-sm: 1.5rem;    // 15px, secondary/small body text
+$fs-h6: $fs-base;                          // 1.6rem
+$fs-h5: $fs-h6 * $scale-ratio;             // 2rem
+$fs-h4: $fs-h5 * $scale-ratio;             // 2.5rem
+$fs-h3: $fs-h4 * $scale-ratio;             // 3.125rem
+$fs-h2: $fs-h3 * $scale-ratio;             // 3.9rem
+$fs-h1: $fs-h2 * $scale-ratio;             // 4.88rem — dial back manually on hero if it feels too big
+
+// Spacing scale (in rem, base-10 friendly now)
+$space-1: 0.4rem;
+$space-2: 0.8rem;
+$space-3: 1.2rem;
+$space-4: 1.6rem;
+$space-6: 2.4rem;
+$space-8: 3.2rem;
+$space-12: 4.8rem;
+$space-16: 6.4rem;
+$space-24: 9.6rem;
+
+$max-width: 130rem; // 1280px
+$radius-sm: 0.4rem;
+$radius-md: 0.8rem;
+$radius-lg: 1.6rem;
